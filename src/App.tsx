@@ -28,33 +28,18 @@ interface CalculatedResult {
 }
 
 function App() {
-  const [step, setStep] = useState<Step>('result');
-  const [email, setEmail] = useState('contato@audaces.ai');
+  const [step, setStep] = useState<Step>('welcome');
+  const [email, setEmail] = useState('');
   const [leadData, setLeadData] = useState<LeadData>({
-    name: 'Alexandre Silveira',
-    phone: '(11) 98888-7777',
-    website: 'audaces.ai',
-    role: 'Fundador / CEO / Sócio'
+    name: '',
+    phone: '',
+    website: '',
+    role: ''
   });
-  
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, number>>({
-    0: 66, 1: 100, 2: 66, 3: 33,
-    4: 100, 5: 66, 6: 100, 7: 66,
-    8: 33, 9: 66, 10: 100, 11: 33,
-    12: 100, 13: 66, 14: 66, 15: 100,
-    16: 33, 17: 66, 18: 100, 19: 66
-  });
-  const [calculatedResult, setCalculatedResult] = useState<CalculatedResult | null>({
-    score: 71,
-    dimensionScores: [
-      { name: 'Estratégia & Liderança', score: 66, description: 'Mapeia se a alta liderança possui alinhamento e intenção estratégica para a adoção de IA.' },
-      { name: 'Processos & Automação', score: 83, description: 'Avalia a maturidade de automação e integração de IA nos processos operacionais da rotina.' },
-      { name: 'Dados & Infraestrutura', score: 58, description: 'Verifica a qualidade e acessibilidade dos dados para alimentar as ferramentas de inteligência.' },
-      { name: 'Pessoas & Cultura', score: 83, description: 'Mede a prontidão, letramento e abertura cultural dos colaboradores para novas tecnologias.' },
-      { name: 'Resultados & Mensuração', score: 66, description: 'Avalia se a empresa metrica ROI e eficiência nas soluções implantadas.' }
-    ]
-  });
+  const [answers, setAnswers] = useState<Record<number, number>>({});
+  const [calculatedResult, setCalculatedResult] = useState<CalculatedResult | null>(null);
 
   // 1. Navigation Actions
   const handleWelcomeNext = (capturedEmail: string) => {
