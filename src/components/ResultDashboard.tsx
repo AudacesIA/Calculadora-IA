@@ -217,13 +217,7 @@ export const ResultDashboard: React.FC<ResultDashboardProps> = ({
   };
 
   // 4. Build WhatsApp redirection link
-  const messageBody = `Olá! Acabei de visualizar os insights do meu diagnóstico de Cultura de IA da Audaces AI.
-Meu score final foi de ${score}% (${classification}).
-Gargalo principal: ${lowestDimension.name} (${lowestDimension.score}%).
-Gap de Consciência: ${gap}%.
-Gostaria de agendar a sessão estratégica "O Mapa da IA" para a minha empresa (${leadData.website || 'Minha Empresa'}).
-Nome: ${leadData.name}
-Função: ${leadData.role}`;
+  const messageBody = `Olá! Acabei de visualizar os insights do meu diagnóstico de Cultura de IA da Audaces AI. Meu score final foi de ${score}% (${classification}). Quero agendar meu diagnóstico gratuito.`;
   const whatsappUrl = `https://wa.me/5548999319446?text=${encodeURIComponent(messageBody)}`;
 
   return (
