@@ -6,6 +6,7 @@ import { QuestionStep } from './components/QuestionStep';
 import { AnalyzingStep } from './components/AnalyzingStep';
 import { ResultDashboard } from './components/ResultDashboard';
 import { dimensions, getQuestionByIndex } from './data/questions';
+import { saveDiagnostico } from './lib/saveData';
 
 type Step = 'welcome' | 'lead_info' | 'questionnaire' | 'analyzing' | 'result';
 
@@ -123,6 +124,21 @@ function App() {
       score: totalScore,
       dimensionScores
     });
+
+    // Persist to Supabase
+    const classificacao = totalScore <= 25 ? 'Inicial'
+      : totalScore <= 50 ? 'Em Desenvolvimento'
+      : totalScore <= 75 ? 'Em Transição'
+      : 'Avançado';
+
+    saveDiagnostico(
+      { email, nome: leadData.name, telefone: leadData.phone, website: leadData.website, cargo: leadData.role },
+      totalScore,
+      classificacao,
+      dimensionScores,
+      answers
+    );
+
     setStep('analyzing');
   };
 
