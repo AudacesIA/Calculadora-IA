@@ -35,6 +35,8 @@ export async function saveDiagnostico(
   dimensionScores: DimensionScore[],
   answers: Record<number, number>
 ): Promise<void> {
+  if (!supabase) return;
+
   // 1. Upsert lead (email is unique — updates if already exists)
   const { data: leadData, error: leadError } = await supabase
     .from('leads')
