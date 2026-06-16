@@ -21,6 +21,7 @@ interface ResultDashboardProps {
   leadData: LeadData;
   answers: number[];
   onReset: () => void;
+  onContact: () => void;
 }
 
 interface ActionStep {
@@ -106,7 +107,8 @@ export const ResultDashboard: React.FC<ResultDashboardProps> = ({
   dimensionScores,
   leadData,
   answers,
-  onReset
+  onReset,
+  onContact
 }) => {
   // 1. Determine Classification
   let classification = '';
@@ -341,16 +343,17 @@ export const ResultDashboard: React.FC<ResultDashboardProps> = ({
           <p className="mapa-cta-desc">
             Solicite uma sessão estratégica de 30 minutos com nossos especialistas. Vamos detalhar gratuitamente este diagnóstico e desenhar o mapa prático de implantação de IA para a <strong>{leadData.website || 'sua empresa'}</strong>.
           </p>
-          <a 
-            href={whatsappUrl} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary"
-            style={{ 
-              textDecoration: 'none', 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
+            onClick={onContact}
+            style={{
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               gap: '8px',
               width: '100%',
               fontWeight: 700

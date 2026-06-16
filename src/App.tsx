@@ -6,7 +6,7 @@ import { QuestionStep } from './components/QuestionStep';
 import { AnalyzingStep } from './components/AnalyzingStep';
 import { ResultDashboard } from './components/ResultDashboard';
 import { dimensions, getQuestionByIndex } from './data/questions';
-import { saveDiagnostico } from './lib/saveData';
+import { saveDiagnostico, markAsContacted } from './lib/saveData';
 
 type Step = 'welcome' | 'lead_info' | 'questionnaire' | 'analyzing' | 'result';
 
@@ -41,6 +41,7 @@ function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [calculatedResult, setCalculatedResult] = useState<CalculatedResult | null>(null);
+  const [diagnosticoId, setDiagnosticoId] = useState<string | null>(null);
 
   // 1. Navigation Actions
   const handleWelcomeNext = (capturedEmail: string) => {
@@ -92,6 +93,13 @@ function App() {
     setCurrentQuestionIndex(0);
     setAnswers({});
     setCalculatedResult(null);
+    setDiagnosticoId(null);
+  };
+
+  const handleContact = () => {
+    if (diagnosticoId) {
+      markAsContacted(diagnosticoId);
+    }
   };
 
   // 2. Calculation logic
@@ -137,7 +145,9 @@ function App() {
       classificacao,
       dimensionScores,
       answers
-    );
+    ).then(id => {
+      if (id) setDiagnosticoId(id);
+    });
 
     setStep('analyzing');
   };
@@ -190,6 +200,7 @@ function App() {
             leadData={{ ...leadData, email }}
             answers={Array.from({ length: 20 }, (_, i) => answers[i] ?? 0)}
             onReset={handleReset}
+            onContact={handleContact}
           />
         );
       default:
