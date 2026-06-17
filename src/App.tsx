@@ -5,7 +5,7 @@ import { LeadInfoStep } from './components/LeadInfoStep';
 import { QuestionStep } from './components/QuestionStep';
 import { AnalyzingStep } from './components/AnalyzingStep';
 import { ResultDashboard } from './components/ResultDashboard';
-import { dimensions, getQuestionByIndex } from './data/questions';
+import { dimensions, getQuestionByIndex, allQuestions } from './data/questions';
 import { saveDiagnostico, markAsContacted } from './lib/saveData';
 
 type Step = 'welcome' | 'lead_info' | 'questionnaire' | 'analyzing' | 'result';
@@ -66,7 +66,7 @@ function App() {
   };
 
   const handleQuestionNext = () => {
-    if (currentQuestionIndex < 19) {
+    if (currentQuestionIndex < allQuestions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
       // Last question completed, calculate and transition to analysis screen
@@ -104,7 +104,7 @@ function App() {
 
   // 2. Calculation logic
   const calculateAndShowResults = () => {
-    const totalQuestions = 20;
+    const totalQuestions = allQuestions.length;
     
     // Aggregate answers array (default to 0 if any missing)
     const answersArray = Array.from({ length: totalQuestions }, (_, i) => answers[i] ?? 0);
@@ -177,7 +177,7 @@ function App() {
             question={question}
             dimension={dimension}
             questionIndex={currentQuestionIndex}
-            totalQuestions={20}
+            totalQuestions={allQuestions.length}
             selectedAnswerPoints={answers[currentQuestionIndex] !== undefined ? answers[currentQuestionIndex] : null}
             onSelectAnswer={handleSelectAnswer}
             onNext={handleQuestionNext}
@@ -198,7 +198,7 @@ function App() {
             score={calculatedResult.score}
             dimensionScores={calculatedResult.dimensionScores}
             leadData={{ ...leadData, email }}
-            answers={Array.from({ length: 20 }, (_, i) => answers[i] ?? 0)}
+            answers={Array.from({ length: allQuestions.length }, (_, i) => answers[i] ?? 0)}
             onReset={handleReset}
             onContact={handleContact}
           />

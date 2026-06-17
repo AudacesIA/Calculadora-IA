@@ -1,5 +1,6 @@
 import React from 'react';
 import { RefreshCw, MessageSquare, BarChart2, ShieldAlert, Compass } from 'lucide-react';
+import { allQuestions } from '../data/questions';
 
 interface LeadData {
   name: string;
@@ -134,7 +135,8 @@ export const ResultDashboard: React.FC<ResultDashboardProps> = ({
   }
 
   // 2. Calculate P20 Self-Perception Contrast
-  const p20Points = answers[19] !== undefined ? answers[19] : 0;
+  const p20Index = allQuestions.findIndex(q => q.id === 'P20');
+  const p20Points = (p20Index !== -1 && answers[p20Index] !== undefined) ? answers[p20Index] : 0;
   let selfPerceptionVal = 0;
   if (p20Points === 0) {
     selfPerceptionVal = 20;

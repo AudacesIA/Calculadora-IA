@@ -42,16 +42,6 @@ export const dimensions: Dimension[] = [
         ]
       },
       {
-        id: "P3",
-        text: "Existe alguém responsável por liderar a adoção de IA na empresa?",
-        options: [
-          { letter: "A", text: "Não, ninguém tem essa responsabilidade", points: 0 },
-          { letter: "B", text: "Alguém se interessa pelo assunto, mas informalmente", points: 33 },
-          { letter: "C", text: "Existe uma pessoa ou área designada, mas sem autoridade real", points: 66 },
-          { letter: "D", text: "Existe uma liderança clara com orçamento e autonomia para agir", points: 100 }
-        ]
-      },
-      {
         id: "P4",
         text: "Como a empresa reage quando um processo poderia ser automatizado?",
         options: [
@@ -95,16 +85,6 @@ export const dimensions: Dimension[] = [
           { letter: "B", text: "Temos planilhas e controles, mas alguém precisa executar", points: 33 },
           { letter: "C", text: "Parte está automatizada com ferramentas simples", points: 66 },
           { letter: "D", text: "Totalmente automatizadas — acontecem sem ninguém precisar lembrar", points: 100 }
-        ]
-      },
-      {
-        id: "P8",
-        text: "Com que frequência vocês identificam e eliminam gargalos operacionais com ajuda de tecnologia?",
-        options: [
-          { letter: "A", text: "Raramente — os problemas ficam meses sem resolução", points: 0 },
-          { letter: "B", text: "Eventualmente, quando o problema vira crise", points: 33 },
-          { letter: "C", text: "Revisamos processos periodicamente", points: 66 },
-          { letter: "D", text: "Temos um ciclo contínuo de melhoria com dados e ferramentas", points: 100 }
         ]
       }
     ]
@@ -161,78 +141,48 @@ export const dimensions: Dimension[] = [
     questions: [
       {
         id: "P13",
-        text: "Como o time reage quando uma nova ferramenta de IA é introduzida?",
+        text: "Como o time costuma reagir quando a empresa tenta implementar um processo ou ferramenta nova?",
         options: [
-          { letter: "A", text: "Resistência — \"mais uma coisa pra aprender\"", points: 0 },
-          { letter: "B", text: "Indiferença — usam se forem obrigados", points: 33 },
-          { letter: "C", text: "Curiosidade — boa parte se engaja, outros resistem", points: 66 },
-          { letter: "D", text: "Entusiasmo — o time busca novas ferramentas por conta própria", points: 100 }
+          { letter: "A", text: "Resistência — \"aqui sempre foi assim\" / \"mais uma coisa pra aprender\"", points: 0 },
+          { letter: "B", text: "Indiferença — fazem se forem obrigados, sem engajamento real", points: 33 },
+          { letter: "C", text: "Curiosidade — boa parte do time topa, mas há resistência de alguns", points: 66 },
+          { letter: "D", text: "Iniciativa — o time busca e sugere melhorias por conta própria", points: 100 }
         ]
       },
       {
         id: "P14",
-        text: "Sua empresa investe em capacitação da equipe para uso de IA?",
+        text: "Como sua empresa lida com o tema de automação e IA internamente?",
         options: [
-          { letter: "A", text: "Não — cada um aprende por conta, se quiser", points: 0 },
-          { letter: "B", text: "Já compartilhamos algum conteúdo informalmente", points: 33 },
-          { letter: "C", text: "Temos treinamentos pontuais quando adotamos algo novo", points: 66 },
-          { letter: "D", text: "Existe uma trilha de capacitação contínua em IA e automação", points: 100 }
-        ]
-      },
-      {
-        id: "P15",
-        text: "Com que frequência colaboradores sugerem ou testam novas ferramentas de IA no trabalho?",
-        options: [
-          { letter: "A", text: "Nunca acontece", points: 0 },
-          { letter: "B", text: "Raramente, e quando acontece não é encorajado", points: 33 },
-          { letter: "C", text: "Acontece de vez em quando, com receptividade variável", points: 66 },
-          { letter: "D", text: "É parte da cultura — experimentar é esperado e celebrado", points: 100 }
-        ]
-      },
-      {
-        id: "P16",
-        text: "Sua empresa tem medo de que IA substitua funcionários, criando resistência interna?",
-        options: [
-          { letter: "A", text: "Sim, esse medo é evidente e paralisa iniciativas", points: 0 },
-          { letter: "B", text: "Existe o medo, mas não falamos abertamente sobre isso", points: 33 },
-          { letter: "C", text: "Já tivemos conversas sobre isso, o clima melhorou", points: 66 },
-          { letter: "D", text: "O time entende IA como aliada — não há resistência significativa", points: 100 }
+          { letter: "A", text: "Não tocamos no assunto — há desconforto ou medo visível", points: 0 },
+          { letter: "B", text: "Comentamos às vezes, mas sem nenhuma ação ou capacitação estruturada", points: 33 },
+          { letter: "C", text: "Já tivemos conversas formais e fizemos alguns testes pontuais", points: 66 },
+          { letter: "D", text: "Temos uma cultura ativa de experimentação e capacitação contínua", points: 100 }
         ]
       }
     ]
   },
   {
     name: "Resultados & Mensuração",
-    description: "Avalia se a empresa sabe medir os impactos de tempo, ROI e escala gerados por IA.",
+    description: "Avalia se a empresa tem visibilidade operacional e plano concreto para evoluir com IA.",
     questions: [
       {
         id: "P17",
-        text: "Vocês conseguem medir quanto tempo ou dinheiro a automação já economizou para a empresa?",
+        text: "Você sabe hoje quanto tempo sua equipe gasta em tarefas repetitivas como cobranças, relatórios ou follow-up com clientes?",
         options: [
-          { letter: "A", text: "Não temos como medir isso", points: 0 },
-          { letter: "B", text: "Temos uma percepção, mas sem números concretos", points: 33 },
-          { letter: "C", text: "Medimos em algumas áreas pontualmente", points: 66 },
-          { letter: "D", text: "Temos métricas claras de ROI das automações em produção", points: 100 }
-        ]
-      },
-      {
-        id: "P18",
-        text: "Como vocês sabem se uma ferramenta de IA está realmente funcionando?",
-        options: [
-          { letter: "A", text: "Não sabemos — usamos e torcemos para dar certo", points: 0 },
-          { letter: "B", text: "Pelo feeling de quem usa", points: 33 },
-          { letter: "C", text: "Analisamos quando surge algum problema", points: 66 },
-          { letter: "D", text: "Monitoramos indicadores de desempenho ativamente", points: 100 }
+          { letter: "A", text: "Não temos essa visibilidade", points: 0 },
+          { letter: "B", text: "Temos uma estimativa, mas sem nenhum dado concreto", points: 33 },
+          { letter: "C", text: "Sabemos para algumas tarefas específicas", points: 66 },
+          { letter: "D", text: "Temos o custo operacional mapeado por processo", points: 100 }
         ]
       },
       {
         id: "P19",
-        text: "Nos últimos 12 meses, quantos processos novos foram automatizados ou passaram a usar IA?",
+        text: "Qual é o plano da sua empresa para adotar IA ou automação nos próximos 12 meses?",
         options: [
-          { letter: "A", text: "Nenhum", points: 0 },
-          { letter: "B", text: "1 processo, ainda em fase de teste", points: 33 },
-          { letter: "C", text: "Entre 2 e 5 processos em produção", points: 66 },
-          { letter: "D", text: "Mais de 5 — a automação é contínua e crescente", points: 100 }
+          { letter: "A", text: "Não temos nenhum plano concreto", points: 0 },
+          { letter: "B", text: "Queremos explorar, mas ainda não definimos nada", points: 33 },
+          { letter: "C", text: "Já temos 1 ou 2 iniciativas mapeadas para implementar", points: 66 },
+          { letter: "D", text: "Temos um roadmap estruturado com metas e prazos definidos", points: 100 }
         ]
       },
       {
@@ -249,7 +199,6 @@ export const dimensions: Dimension[] = [
   }
 ];
 
-// Helper to get question by index (0-19)
 export const getQuestionByIndex = (index: number): { question: Question; dimension: Dimension; dimensionIndex: number } => {
   let count = 0;
   for (let d = 0; d < dimensions.length; d++) {
@@ -266,5 +215,4 @@ export const getQuestionByIndex = (index: number): { question: Question; dimensi
   throw new Error(`Question index ${index} out of bounds`);
 };
 
-// Flattened list of all questions
 export const allQuestions = dimensions.reduce<Question[]>((acc, dim) => [...acc, ...dim.questions], []);
