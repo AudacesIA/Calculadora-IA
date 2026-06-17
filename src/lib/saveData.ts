@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { allQuestions } from '../data/questions';
 
 interface LeadData {
   email: string;
@@ -22,7 +23,7 @@ export async function saveDiagnostico(
 ): Promise<string | null> {
   if (!supabase) return null;
 
-  const respostasArray = Array.from({ length: 20 }, (_, i) => answers[i] ?? 0);
+  const respostasArray = Array.from({ length: allQuestions.length }, (_, i) => answers[i] ?? 0);
 
   try {
     const { data, error } = await supabase
